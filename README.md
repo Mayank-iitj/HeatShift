@@ -1,65 +1,120 @@
-# HeatShift
+<div align="center">
+  <img src="frontend/public/sun.svg" alt="HeatShift Logo" width="120" />
+  <h1><strong>HeatShift</strong></h1>
+  <p><strong>AI-Driven, Hyper-Local Heat Risk Management Platform</strong></p>
 
-An AI-driven, hyper-local heat risk management platform built on AWS, designed to protect outdoor and vulnerable labor forces during extreme heat waves.
+  [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+  [![AWS SAM](https://img.shields.io/badge/AWS-SAM-FF9900?logo=amazonaws&logoColor=white)](https://aws.amazon.com/serverless/sam/)
+  [![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+  [![Cedar](https://img.shields.io/badge/Policy-Cedar-be123c)](https://www.cedarpolicy.com/)
+  
+  <br />
+  <em>Winner of the WeMakeDevs x AWS Environmental Hacks (Track 02: Heat and Water).</em>
+  <br /><br />
+</div>
 
-Winner of the **WeMakeDevs x AWS Environmental Hacks** (Track 02: Heat and Water).
+---
 
-## Overview
+## 🌪️ The Problem
+Climate change is exacerbating extreme heat waves, transforming outdoor labor from difficult to deadly. Generalized, city-wide weather warnings fall short because micro-climates, human demographics, and specific labor conditions dictate the true risk.
 
-HeatShift shifts work hours away from deadly heat peaks dynamically. Instead of static, generalized weather warnings, HeatShift:
-1. Ingests hourly forecast and reanalysis data from Open-Meteo for 12 local zones.
-2. Computes the **Stull Wet-Bulb Approximation (2011)** and applies vulnerability offsets (unshaded conditions, heavy labor, age demographics) to determine a rigorous risk tier (0-3).
-3. Uses the **Strands Agents SDK** and **Amazon Bedrock (Claude 3 Haiku)** to intelligently replan work shifts away from Tier 2/3 hours.
-4. Strictly enforces work safety via **Cedar Policies** (`cedarpy`), ensuring the LLM cannot hallucinate an unsafe shift.
-5. Automatically notifies managers via **Telegram** with bilingual instructions and tracks confirmed **Exposure Hours Avoided**.
+## 🛡️ The Solution
+**HeatShift** is a state-of-the-art platform that dynamically shifts work hours away from deadly heat peaks. By combining hyper-local weather reanalysis, advanced risk algorithms, and autonomous AI agents, it guarantees the safety of vulnerable outdoor workforces.
 
-## Architecture
+---
 
-![Architecture](docs/architecture.png)
-*(Note: Create an architecture.png for the repo!)*
+## ✨ Premium Features
 
-- **Backend:** AWS SAM (Serverless Application Model)
-- **Compute:** AWS Lambda, Step Functions (Replay Mode)
-- **Database:** DynamoDB (Single-table patterns with Streams)
-- **Auth/Policy:** Cedar
-- **Frontend:** Next.js (Tailwind, Shadcn), hosted on S3 + CloudFront
+- **AI-Agentic Planning** 🧠  
+  Uses **Amazon Bedrock (Claude 3 Haiku)** via the **Strands Agents SDK** to intelligently and dynamically replan work-rest cycles around peak heat hours.
+  
+- **Policy-as-Code Safety Vault** 🔒  
+  LLMs can hallucinate. HeatShift prevents this by running all AI-generated schedules through rigorous **Cedar Policies**, guaranteeing that no unsafe shift ever makes it to the workforce.
 
-## Features
-- **LIVE & REPLAY Modes:** View current data or replay the peak 2024 Delhi Heat Wave.
-- **Dynamic Risk Engine:** Not just temperature—accounts for humidity and human factors.
-- **Agentic Planning:** Bedrock + Strands creates optimal, safe work-rest cycles.
-- **Policy-as-Code Validation:** Cedar guarantees plans meet safety rules.
-- **Bilingual Alerts:** English and Hindi support for broader accessibility.
+- **Hyper-Local Risk Engine** 🌡️  
+  We calculate the **Stull Wet-Bulb Approximation (2011)** for 12 local zones and apply real-world offsets (lack of shade, heavy labor, age demographics) to generate an accurate Risk Tier (0-3).
 
-## Setup Instructions
+- **Cinematic, High-End UI/UX** 🎨  
+  An ultra-premium Next.js frontend built to wow.
+  - Interactive **WebGL Plasma** backgrounds powered by `ogl`
+  - Fluid **GSAP** driven dropdown `CardNav`
+  - Spring-physics **Magnetic** buttons and trailing **Custom Cursors**
+  - Smooth reveal animations via `motion/react`
 
-See [SETUP_CHECKLIST.md](docs/SETUP_CHECKLIST.md) for detailed deployment steps.
+- **Bilingual & Multi-Channel Alerts** 📲  
+  Automatically dispatches localized alerts to site managers in both English and Hindi via **Telegram Webhooks**.
 
-### Quick Start
+---
+
+## 🏗️ Architecture & Tech Stack
+
+The architecture is heavily optimized for scalability, relying completely on Serverless patterns.
+
+### 🎨 Frontend
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS + Vanilla CSS Modules
+- **Animations & WebGL:** GSAP, Framer Motion (`motion/react`), `ogl` (React Bits)
+- **Icons:** Lucide-React & React-Icons
+
+### ⚙️ Backend (AWS SAM)
+- **Compute:** AWS Lambda, AWS Step Functions (for Replay Mode)
+- **Database:** DynamoDB (Single-table design with DynamoDB Streams for event-driven flows)
+- **AI / LLM:** Amazon Bedrock (`anthropic.claude-3-haiku-20240307-v1:0`)
+- **Policy Engine:** `cedarpy` (AWS Cedar)
+- **Infrastructure as Code:** AWS SAM (`template.yaml`)
+
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Backend Deployment
+Deploy the full serverless stack to AWS using the SAM CLI:
 ```bash
-# 1. Build the backend
+# Install Python dependencies
+make install
+
+# Build the SAM application
 make build
 
-# 2. Deploy to AWS
-make deploy
+# Deploy to AWS (interactive)
+sam deploy --guided
+```
 
-# 3. Seed demo data
+### 2. Seed Demo Data
+To test the platform, populate DynamoDB with initial zones and demo configurations:
+```bash
 make seed
+```
 
-# 4. Start frontend locally
+### 3. Frontend Development
+Launch the cinematic UI locally:
+```bash
 cd frontend
 npm install
 npm run dev
 ```
+Visit `http://localhost:3000` to interact with the platform.
 
-## Repository Structure
-- `backend/`: Lambda functions, common layer, and Cedar policies.
-- `frontend/`: Next.js application.
-- `statemachines/`: ASL definitions for Step Functions.
-- `scripts/`: Data pipeline and smoke tests.
-- `docs/`: Architecture decisions, checklists.
-- `data/`: Zone definitions and heuristic configs.
+---
 
-## License
-MIT License. See [LICENSE](LICENSE) for details.
-# HeatShift
+## 📂 Repository Structure
+
+| Directory | Description |
+|-----------|-------------|
+| `/backend` | Core Lambda functions, common utilities, and the Bedrock AI Agent. |
+| `/backend/policies` | `.cedar` policy files defining the rigid safety constraints. |
+| `/frontend` | The Next.js web application and premium UI components. |
+| `/statemachines` | ASL JSON definitions for the Step Functions replay engine. |
+| `/scripts` | Data ingestion pipelines, smoke tests, and DynamoDB seeders. |
+| `/docs` | Setup checklists and architecture diagrams. |
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+
+<div align="center">
+  <br />
+  <i>Protecting the vulnerable. One shift at a time.</i>
+</div>

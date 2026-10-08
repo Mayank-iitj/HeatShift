@@ -1,0 +1,21 @@
+namespace HeatShift {
+    entity Site {
+        worker_count: Long,
+        over50_share: decimal,
+        unshaded: Bool,
+        heavy_labor: Bool,
+    };
+
+    entity WorkBlock {
+        tier: Long,
+        start_hour: Long,
+        end_hour: Long,
+        continuous_minutes: Long,
+        intensity: String,
+    };
+
+    action ScheduleWork appliesTo {
+        principal: Site,
+        resource: WorkBlock,
+    };
+}

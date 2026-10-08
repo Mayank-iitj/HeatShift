@@ -1,0 +1,98 @@
+[
+  {
+    "id": "connaught_place",
+    "name": "Connaught Place",
+    "name_hi": "कनॉट प्लेस",
+    "lat": 28.6315,
+    "lon": 77.2167,
+    "character": "commercial_central"
+  },
+  {
+    "id": "dwarka",
+    "name": "Dwarka",
+    "name_hi": "द्वारका",
+    "lat": 28.5921,
+    "lon": 77.0460,
+    "character": "planned_residential"
+  },
+  {
+    "id": "rohini",
+    "name": "Rohini",
+    "name_hi": "रोहिणी",
+    "lat": 28.7495,
+    "lon": 77.0565,
+    "character": "dense_residential"
+  },
+  {
+    "id": "okhla_industrial",
+    "name": "Okhla Industrial Area",
+    "name_hi": "ओखला औद्योगिक क्षेत्र",
+    "lat": 28.5310,
+    "lon": 77.2710,
+    "character": "industrial"
+  },
+  {
+    "id": "najafgarh",
+    "name": "Najafgarh",
+    "name_hi": "नजफ़गढ़",
+    "lat": 28.6092,
+    "lon": 76.9798,
+    "character": "peri_urban"
+  },
+  {
+    "id": "narela",
+    "name": "Narela",
+    "name_hi": "नरेला",
+    "lat": 28.8526,
+    "lon": 77.0930,
+    "character": "industrial_peri_urban"
+  },
+  {
+    "id": "mayur_vihar",
+    "name": "Mayur Vihar",
+    "name_hi": "मयूर विहार",
+    "lat": 28.5930,
+    "lon": 77.2950,
+    "character": "dense_residential"
+  },
+  {
+    "id": "lajpat_nagar",
+    "name": "Lajpat Nagar",
+    "name_hi": "लाजपत नगर",
+    "lat": 28.5700,
+    "lon": 77.2373,
+    "character": "commercial_residential"
+  },
+  {
+    "id": "karol_bagh",
+    "name": "Karol Bagh",
+    "name_hi": "करोल बाग़",
+    "lat": 28.6514,
+    "lon": 77.1907,
+    "character": "commercial_dense"
+  },
+  {
+    "id": "saket",
+    "name": "Saket",
+    "name_hi": "साकेत",
+    "lat": 28.5244,
+    "lon": 77.2066,
+    "character": "commercial_residential"
+  },
+  {
+    "id": "shahdara",
+    "name": "Shahdara",
+    "name_hi": "शाहदरा",
+    "lat": 28.6737,
+    "lon": 77.2890,
+    "character": "industrial_dense"
+  },
+  {
+    "id": "mundka",
+    "name": "Mundka",
+    "name_hi": "मुंडका",
+    "lat": 28.6840,
+    "lon": 77.0290,
+    "character": "industrial_peri_urban"
+  }
+]

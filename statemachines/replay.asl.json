@@ -1,0 +1,31 @@
+{
+  "Comment": "HeatShift Replay State Machine — advances a virtual clock by one hour per tick, invoking ingest_score with cached historical data.",
+  "StartAt": "ReplayTick",
+  "States": {
+    "ReplayTick": {
+      "Type": "Task",
+      "Resource": "${ReplayTickFunctionArn}",
+      "ResultPath": "$.tickResult",
+      "Next": "CheckDone"
+    },
+    "CheckDone": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.tickResult.done",
+          "BooleanEquals": true,
+          "Next": "ReplayDone"
+        }
+      ],
+      "Default": "WaitBetweenTicks"
+    },
+    "WaitBetweenTicks": {
+      "Type": "Wait",
+      "Seconds": 5,
+      "Next": "ReplayTick"
+    },
+    "ReplayDone": {
+      "Type": "Succeed"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+# Heat Rules Configuration
+# These are configurable heuristics, NOT medical standards.
+# Adjust based on local conditions and expert guidance.
+
+# Risk tier thresholds
+tiers:
+  - tier: 0
+    label: "Low"
+    label_hi: "कम"
+    apparent_temp_min: null
+    apparent_temp_max: 32.0
+    wet_bulb_min: null
+    wet_bulb_max: 26.0
+    color: "#F5E6D3"
+  - tier: 1
+    label: "Moderate"
+    label_hi: "मध्यम"
+    apparent_temp_min: 32.0
+    apparent_temp_max: 38.0
+    wet_bulb_min: 26.0
+    wet_bulb_max: 28.0
+    color: "#E8A87C"
+  - tier: 2
+    label: "High"
+    label_hi: "अधिक"
+    apparent_temp_min: 38.0
+    apparent_temp_max: 45.0
+    wet_bulb_min: 28.0
+    wet_bulb_max: 31.0
+    color: "#C1533E"
+  - tier: 3
+    label: "Extreme"
+    label_hi: "अत्यधिक"
+    apparent_temp_min: 45.0
+    apparent_temp_max: null
+    wet_bulb_min: 31.0
+    wet_bulb_max: null
+    color: "#6B1D1D"
+
+# Vulnerability offsets (added to apparent temperature)
+vulnerability_offsets:
+  unshaded: 2.0       # °C, unshaded work area
+  heavy_labor: 1.5    # °C, heavy physical labor
+  over50_high: 1.0    # °C, over-50 share > 30%
+
+over50_threshold: 0.30  # share above which the over50 offset applies
+
+# Work-rest rules (default, per tier)
+work_rest:
+  tier_0:
+    max_continuous_minutes: null  # no limit
+    rest_minutes: null
+  tier_1:
+    max_continuous_minutes: 90
+    rest_minutes: 15
+  tier_2:
+    max_continuous_minutes: 45
+    rest_minutes: 20
+    over50_max_continuous_minutes: 30
+  tier_3:
+    max_continuous_minutes: 0  # no outdoor work advised
+    rest_minutes: null
+    forbid_hours: [12, 13, 14, 15]  # 12:00-16:00 IST
+
+# Hydration guidance (not medical advice)
+hydration:
+  tier_0: "Drink water regularly."
+  tier_0_hi: "नियमित रूप से पानी पियें।"
+  tier_1: "Drink 250ml water every 30 minutes."
+  tier_1_hi: "हर 30 मिनट में 250ml पानी पियें।"
+  tier_2: "Drink 250ml water every 20 minutes. Rest in shade."
+  tier_2_hi: "हर 20 मिनट में 250ml पानी पियें। छाया में आराम करें।"
+  tier_3: "Avoid outdoor work. Seek shade and water immediately."
+  tier_3_hi: "बाहर काम से बचें। तुरंत छाया और पानी की तलाश करें।"
