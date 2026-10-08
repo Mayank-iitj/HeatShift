@@ -9,7 +9,6 @@
   [![Cedar](https://img.shields.io/badge/Policy-Cedar-be123c)](https://www.cedarpolicy.com/)
   
   <br />
-  <em>Winner of the WeMakeDevs x AWS Environmental Hacks (Track 02: Heat and Water).</em>
   <br /><br />
 </div>
 
