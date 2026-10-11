@@ -39,8 +39,8 @@ const navItems = [
     bgColor: "#be123c", 
     textColor: "#fff",
     links: [
-      { label: "Contact Sales", ariaLabel: "Contact", href: "/contact-sales" },
-      { label: "About Us", ariaLabel: "About", href: "/about-us" }
+      { label: "Contact Sales", ariaLabel: "Contact", href: "/contact" },
+      { label: "About Us", ariaLabel: "About", href: "/about" }
     ]
   }
 ];

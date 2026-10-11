@@ -10,8 +10,8 @@ export default function Footer() {
         {/* Left side: Navigation and Copy */}
         <div className="flex flex-col gap-12">
           <nav className="flex flex-wrap gap-8 text-sm font-bold uppercase tracking-wider">
-            <Link href="/about-us" className="hover:opacity-70 transition-opacity">About us</Link>
-            <Link href="/contact-sales" className="hover:opacity-70 transition-opacity">Contact Sales</Link>
+            <Link href="/about" className="hover:opacity-70 transition-opacity">About us</Link>
+            <Link href="/contact" className="hover:opacity-70 transition-opacity">Contact</Link>
             <Link href="/forecasting-api" className="hover:opacity-70 transition-opacity">API Docs</Link>
             <Link href="/cedar-policies" className="hover:opacity-70 transition-opacity">Cedar Policies</Link>
           </nav>
