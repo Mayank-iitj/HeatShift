@@ -22,7 +22,7 @@ const navItems = [
     textColor: "#fff",
     links: [
       { label: "Dashboard", ariaLabel: "Live Dashboard", href: "/dashboard" },
-      { label: "Forecasting API", ariaLabel: "API Docs", href: "#" }
+      { label: "Forecasting API", ariaLabel: "API Docs", href: "/forecasting-api" }
     ]
   },
   {
@@ -30,8 +30,8 @@ const navItems = [
     bgColor: "#e11d48",
     textColor: "#fff",
     links: [
-      { label: "Cedar Policies", ariaLabel: "Policies", href: "#" },
-      { label: "Documentation", ariaLabel: "Docs", href: "#" }
+      { label: "Cedar Policies", ariaLabel: "Policies", href: "/cedar-policies" },
+      { label: "Documentation", ariaLabel: "Docs", href: "/documentation" }
     ]
   },
   {
@@ -39,8 +39,8 @@ const navItems = [
     bgColor: "#be123c", 
     textColor: "#fff",
     links: [
-      { label: "Contact Sales", ariaLabel: "Contact", href: "#" },
-      { label: "About Us", ariaLabel: "About", href: "#" }
+      { label: "Contact Sales", ariaLabel: "Contact", href: "/contact-sales" },
+      { label: "About Us", ariaLabel: "About", href: "/about-us" }
     ]
   }
 ];

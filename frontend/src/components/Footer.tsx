@@ -9,9 +9,11 @@ export default function Footer() {
         
         {/* Left side: Navigation and Copy */}
         <div className="flex flex-col gap-12">
-          <nav className="flex gap-8 text-sm font-bold uppercase tracking-wider">
-            <Link href="#" className="hover:opacity-70 transition-opacity">About us</Link>
-            <Link href="#" className="hover:opacity-70 transition-opacity">Contact</Link>
+          <nav className="flex flex-wrap gap-8 text-sm font-bold uppercase tracking-wider">
+            <Link href="/about-us" className="hover:opacity-70 transition-opacity">About us</Link>
+            <Link href="/contact-sales" className="hover:opacity-70 transition-opacity">Contact Sales</Link>
+            <Link href="/forecasting-api" className="hover:opacity-70 transition-opacity">API Docs</Link>
+            <Link href="/cedar-policies" className="hover:opacity-70 transition-opacity">Cedar Policies</Link>
           </nav>
           
           <div className="flex flex-col gap-2">
@@ -24,9 +26,14 @@ export default function Footer() {
 
         {/* Right side: Socials */}
         <div className="mt-12 md:mt-0">
-          <Link href="#" className="text-sm font-bold uppercase tracking-wider hover:opacity-70 transition-opacity">
+          <a 
+            href="https://github.com/Mayank-iitj/HeatShift" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-sm font-bold uppercase tracking-wider hover:opacity-70 transition-opacity"
+          >
             GITHUB
-          </Link>
+          </a>
         </div>
       </div>
 
