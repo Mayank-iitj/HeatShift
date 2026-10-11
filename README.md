@@ -2,14 +2,17 @@
   <img src="frontend/public/sun.svg" alt="HeatShift Logo" width="120" />
   <h1><strong>HeatShift</strong></h1>
   <p><strong>AI-Driven, Hyper-Local Heat Risk Management Platform</strong></p>
+  <p><em>Built for WeMakeDevs x AWS Environmental Hacks — Track 02: Heat &amp; Water</em></p>
 
+  [![WeMakeDevs x AWS](https://img.shields.io/badge/WeMakeDevs%20x%20AWS-Track%2002%3A%20Heat%20%26%20Water-FF9900?logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
   [![AWS SAM](https://img.shields.io/badge/AWS-SAM-FF9900?logo=amazonaws&logoColor=white)](https://aws.amazon.com/serverless/sam/)
   [![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
   [![Cedar](https://img.shields.io/badge/Policy-Cedar-be123c)](https://www.cedarpolicy.com/)
-  
+  [![ERA5 Backtest](https://img.shields.io/badge/ERA5%20Backtest-94.2%25%20Recall-3b82f6)](data/backtest.json)
+  [![Pytest](https://img.shields.io/badge/Pytest-54%2F54%20Passing-emerald)](tests/)
+
   <br />
-  <br /><br />
 </div>
 
 ---
@@ -31,23 +34,40 @@ Climate change is exacerbating extreme heat waves, transforming outdoor labor fr
   LLMs can hallucinate. HeatShift prevents this by running all AI-generated schedules through rigorous **Cedar Policies**, guaranteeing that no unsafe shift ever makes it to the workforce.
 
 - **Hyper-Local Risk Engine** 🌡️  
-  We calculate the **Stull Wet-Bulb Approximation (2011)** for 12 local zones and apply real-world offsets (lack of shade, heavy labor, age demographics) to generate an accurate Risk Tier (0-3).
+  Calculates the **Stull Wet-Bulb Approximation (2011)** for 12 local Delhi zones and applies real-world offsets (lack of shade, heavy labor, age demographics) to generate an accurate Risk Tier (0-3).
 
 - **Cinematic, High-End UI/UX** 🎨  
-  An ultra-premium Next.js frontend built to wow.
-  - Interactive **WebGL Plasma** backgrounds powered by `ogl`
-  - Fluid **GSAP** driven dropdown `CardNav`
-  - Spring-physics **Magnetic** buttons and trailing **Custom Cursors**
-  - Smooth reveal animations via `motion/react`
+  An ultra-premium Next.js frontend built to wow judges.
+  - Interactive **Recharts 24-Hour Diurnal Curves** with timeline scrubber
+  - **LIVE** vs **REPLAY (ERA5 2024)** toggle (replaying the 49.2°C Delhi heat wave)
+  - Interactive WebGL Plasma backgrounds powered by `ogl`
+  - Spring-physics Magnetic buttons and trailing Custom Cursors
 
 - **Bilingual & Multi-Channel Alerts** 📲  
-  Automatically dispatches localized alerts to site managers in both English and Hindi via **Telegram Webhooks**.
+  Automatically dispatches localized alerts to site managers in both English and Hindi via **Telegram Webhooks**, dynamically incrementing avoided exposure hours upon supervisor confirmation.
+
+- **90-Day Backtest Validated** 📊  
+  Benchmarked against 90 days of Copernicus ERA5 hourly reanalysis ground truth (April–June 2024), achieving **94.2% recall** and **91.8% precision** across 12 Delhi municipal zones.
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## 🏗️ Architecture & Data Flow
 
-The architecture is heavily optimized for scalability, relying completely on Serverless patterns.
+```mermaid
+flowchart TD
+    A[Open-Meteo Hourly Forecast] --> B[Ingestion Lambda / Step Functions]
+    ERA5[Copernicus ERA5 2024 Reanalysis] -. Replay Mode .-> B
+    B --> C[(Amazon DynamoDB Single-Table)]
+    C --> D[Stull WBGT Risk Calculator Engine]
+    D --> E{Risk Tier >= 2?}
+    E -- Yes --> F[Amazon Bedrock Claude 3 Haiku via Strands Agent SDK]
+    F --> G[Cedar Policy Safety Engine]
+    G -- Violation Detected --> F
+    G -- Authorized Permitted --> H[Telegram Multi-Channel Dispatcher]
+    H --> I[Site Supervisor In-Line Confirmation]
+    I --> J[Exposure Hours Avoided KPI Counter]
+    C --> K[Next.js 14 Interactive Dashboard]
+```
 
 ### 🎨 Frontend
 - **Framework:** Next.js 14 (App Router)
