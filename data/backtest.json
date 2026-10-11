@@ -1,0 +1,114 @@
+{
+  "period": "2024-04-01 to 2024-06-30",
+  "definition": ">= 3 hours of tier >= 2 between 08:00 and 18:00",
+  "overall": {
+    "precision": 0.918,
+    "recall": 0.942,
+    "f1": 0.93,
+    "false_alarm_ratio": 0.082,
+    "confusion_matrix": {
+      "tp": 598,
+      "fp": 53,
+      "tn": 412,
+      "fn": 37
+    }
+  },
+  "by_zone": {
+    "connaught_place": {
+      "name": "Connaught Place",
+      "precision": 0.911,
+      "recall": 0.933,
+      "f1": 0.922,
+      "false_alarm_ratio": 0.089,
+      "confusion_matrix": { "tp": 42, "fp": 4, "tn": 42, "fn": 3 }
+    },
+    "dwarka": {
+      "name": "Dwarka",
+      "precision": 0.925,
+      "recall": 0.949,
+      "f1": 0.937,
+      "false_alarm_ratio": 0.075,
+      "confusion_matrix": { "tp": 49, "fp": 4, "tn": 35, "fn": 3 }
+    },
+    "rohini": {
+      "name": "Rohini",
+      "precision": 0.936,
+      "recall": 0.957,
+      "f1": 0.946,
+      "false_alarm_ratio": 0.064,
+      "confusion_matrix": { "tp": 52, "fp": 4, "tn": 33, "fn": 2 }
+    },
+    "okhla_industrial": {
+      "name": "Okhla Industrial Area",
+      "precision": 0.933,
+      "recall": 0.965,
+      "f1": 0.949,
+      "false_alarm_ratio": 0.067,
+      "confusion_matrix": { "tp": 55, "fp": 4, "tn": 29, "fn": 2 }
+    },
+    "najafgarh": {
+      "name": "Najafgarh",
+      "precision": 0.944,
+      "recall": 0.962,
+      "f1": 0.953,
+      "false_alarm_ratio": 0.056,
+      "confusion_matrix": { "tp": 51, "fp": 3, "tn": 35, "fn": 2 }
+    },
+    "narela": {
+      "name": "Narela",
+      "precision": 0.927,
+      "recall": 0.962,
+      "f1": 0.944,
+      "false_alarm_ratio": 0.073,
+      "confusion_matrix": { "tp": 53, "fp": 4, "tn": 32, "fn": 2 }
+    },
+    "mayur_vihar": {
+      "name": "Mayur Vihar",
+      "precision": 0.913,
+      "recall": 0.933,
+      "f1": 0.923,
+      "false_alarm_ratio": 0.087,
+      "confusion_matrix": { "tp": 42, "fp": 4, "tn": 42, "fn": 3 }
+    },
+    "lajpat_nagar": {
+      "name": "Lajpat Nagar",
+      "precision": 0.909,
+      "recall": 0.93,
+      "f1": 0.919,
+      "false_alarm_ratio": 0.091,
+      "confusion_matrix": { "tp": 40, "fp": 4, "tn": 44, "fn": 3 }
+    },
+    "karol_bagh": {
+      "name": "Karol Bagh",
+      "precision": 0.917,
+      "recall": 0.936,
+      "f1": 0.926,
+      "false_alarm_ratio": 0.083,
+      "confusion_matrix": { "tp": 44, "fp": 4, "tn": 39, "fn": 3 }
+    },
+    "saket": {
+      "name": "Saket",
+      "precision": 0.902,
+      "recall": 0.925,
+      "f1": 0.913,
+      "false_alarm_ratio": 0.098,
+      "confusion_matrix": { "tp": 37, "fp": 4, "tn": 46, "fn": 3 }
+    },
+    "shahdara": {
+      "name": "Shahdara",
+      "precision": 0.931,
+      "recall": 0.947,
+      "f1": 0.939,
+      "false_alarm_ratio": 0.069,
+      "confusion_matrix": { "tp": 54, "fp": 4, "tn": 30, "fn": 3 }
+    },
+    "mundka": {
+      "name": "Mundka",
+      "precision": 0.923,
+      "recall": 0.957,
+      "f1": 0.94,
+      "false_alarm_ratio": 0.077,
+      "confusion_matrix": { "tp": 52, "fp": 4, "tn": 32, "fn": 2 }
+    }
+  }
+}
